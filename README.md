@@ -33,7 +33,7 @@ If you regularly do JavaScript development, you likely have many of these instal
 - You _may_ have to modify the Windows firewall to get the app running on your phone in the Expo Go app. If you keep getting connection timed out errors, you can try running `WF.msc` and then adding an inbound rule for port 19000.
 
 ## Verifying that everything is working
-We will walk through this during the pre-compiler, but you can also try it ahead of time to be sure that everything is installed correctly.
+We will walk through this during the workshop, but you can also try it ahead of time to be sure that everything is installed correctly.
 (adapted from https://docs.expo.dev/get-started/create-a-new-app/ - see for troubleshooting tips)
 1. In the demo project folder, run `npm install`.
 2. Run `npx expo start`.
