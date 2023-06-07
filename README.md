@@ -26,6 +26,11 @@ If you regularly do JavaScript development, you likely have many of these instal
 11. `cd` to the folder and run `npm install`.
 12. Run `npx expo login` and login with your Expo account.
 
+## Considerations for specific setups
+- Beyond installing tools like Node and Git, you should not need admin access on your machine.
+- There's nothing particular that should be incompatible with your VPN/ Firewall setup, but you will be connecting to Firebase and Expo services.
+- However, if you run into network, installation, or phone issues, most of this workshop can be done without the EAS and Firebase CLI's, and without a phone or simulator. You can run the app in your web browser instead of a phone. Running on just a web browser also does not require logging into the Expo servers on the CLI.
+
 ## Platform-specific tips
 #### Tips for Windows
 - I tested this setup in Powershell and it was fine. I did have to change the execution policy first, using these instructions: https://tecadmin.net/powershell-running-scripts-is-disabled-system
