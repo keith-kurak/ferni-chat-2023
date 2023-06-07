@@ -5,7 +5,7 @@ Workshop for KCDC 2023!
 
 ## Installation/ setup steps
 (adapted from https://docs.expo.dev/get-started/installation/)
-If you regularly do JavaScript development, you likely have many of these installed already!
+Bring your laptop! You will write code with it. If you regularly do JavaScript development, you likely have many of these installed on your machine already.
 
 ### Install Expo prerequisites
 1. [Node.js LTS release](https://nodejs.org/en/) (version 16 or higher)
@@ -19,7 +19,7 @@ If you regularly do JavaScript development, you likely have many of these instal
 7. Download the "Expo Go" app on your phone from the App Store or Play Store. Sign into the app using the Expo account you just created.
 8. Go to the [Firebase Console](https://console.firebase.google.com/), click "Create a Project" or "Add Project", give it a name like "[myname]-ferni-chat-2023" and accept all the default options. A Google account is required for this step.
 ### Fork/ Clone the demo project and restore dependencies (recommended!)
-*It's a good idea to restore dependencies in case the network goes wonky during the session! Fork AND clone the repo if you'd like to push anything you do to Github. Just cloning it is fine, too, if you just want to keep everything local.*
+*It's a good idea to restore dependencies in case the network goes wonky during the session! Fork AND clone the repo if you'd like to push anything you do to Github. Just cloning it is fine, too, if you just want to keep everything local. Each exercise will start from a specific branch on this repo.*
 
 9. Click "Fork" at the top of this page to fork the repo.
 10. Clone your fork (easy way: click the green "Code" button, then "Open in Github Desktop").
