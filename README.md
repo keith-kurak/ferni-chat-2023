@@ -33,7 +33,7 @@ Bring your laptop! You will write code with it. If you regularly do JavaScript d
 
 ## Platform-specific tips
 #### Tips for Windows
-- I tested this setup in Powershell and it was fine. I did have to change the execution policy first, using these instructions: https://tecadmin.net/powershell-running-scripts-is-disabled-system
+- I tested this setup in Powershell and it was fine. I did have to change the execution policy first, using these instructions: https://tecadmin.net/powershell-running-scripts-is-disabled-system (old Windows 10 advice, haven't experienced this in Windows 11)
 - I've also worked with Expo in WSL. I followed these instructions previously to get it working with the terminal inside Visual Studio code: https://code.visualstudio.com/docs/remote/wsl
 - You _may_ have to modify the Windows firewall to get the app running on your phone in the Expo Go app. If you keep getting connection timed out errors, you can try running `WF.msc` and then adding an inbound rule for port 19000. (this was old instructions from Windows 10, I have not experienced this issue with Windows 11/ PowerShell).
 
