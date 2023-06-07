@@ -1,5 +1,5 @@
 # FerniChat 2023
-Workshop for KCDC 2023!
+For "Freaky Fast Full Stack with the FERNI STack" workshop for KCDC 2023!
 
 ## Prerequisites (do before workshop)
 
