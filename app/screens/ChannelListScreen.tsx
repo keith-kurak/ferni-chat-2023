@@ -43,7 +43,7 @@ export const ChannelListScreen: FC<DemoTabScreenProps<"ChannelList">> = observer
     return (
       <Screen preset="fixed" safeAreaEdges={[]} contentContainerStyle={$screenContentContainer}>
         <FlatList<Channel>
-          data={channelStore.channels}
+          data={channelStore.channelsForList}
           contentContainerStyle={$flatListContentContainer}
           ListEmptyComponent={
             <EmptyState
