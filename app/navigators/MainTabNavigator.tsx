@@ -9,7 +9,7 @@ import { ChannelListScreen, SettingsScreen } from "../screens"
 import { colors, spacing, typography } from "../theme"
 import { AppStackParamList, AppStackScreenProps } from "./AppNavigator"
 
-export type DemoTabParamList = {
+export type MainTabParamList = {
   Settings: undefined
   ChannelList: undefined
 }
@@ -19,14 +19,14 @@ export type DemoTabParamList = {
  *
  * More info: https://reactnavigation.org/docs/typescript/#organizing-types
  */
-export type DemoTabScreenProps<T extends keyof DemoTabParamList> = CompositeScreenProps<
-  BottomTabScreenProps<DemoTabParamList, T>,
+export type DemoTabScreenProps<T extends keyof MainTabParamList> = CompositeScreenProps<
+  BottomTabScreenProps<MainTabParamList, T>,
   AppStackScreenProps<keyof AppStackParamList>
 >
 
-const Tab = createBottomTabNavigator<DemoTabParamList>()
+const Tab = createBottomTabNavigator<MainTabParamList>()
 
-export function DemoNavigator() {
+export function MainTabNavigator() {
   const { bottom } = useSafeAreaInsets()
 
   return (
