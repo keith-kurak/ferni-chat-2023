@@ -40,12 +40,6 @@ export const ChannelListScreen: FC<DemoTabScreenProps<"ChannelList">> = observer
       setModalVisible(!isModalVisible)
     }
 
-    const addChannel = () => {
-      if (!newChannelName) return
-      setNewChannelName("")
-      toggleAddChannelModal()
-    }
-
     useHeader({
       title: 'Channels',
       rightText: "Add",
@@ -83,7 +77,7 @@ export const ChannelListScreen: FC<DemoTabScreenProps<"ChannelList">> = observer
             placeholder="Channel Name"
             onChangeText={(text) => setNewChannelName(text)}
           />
-          <Button text="Add Channel" onPress={addChannel} />
+          <Button text="Add Channel" onPress={() => {}} />
         </View>
       </Modal>
       </Screen>
