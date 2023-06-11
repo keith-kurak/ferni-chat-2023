@@ -6,8 +6,6 @@ import { Screen, SlackMessage } from "app/components"
 import { useNavigation, useRoute } from "@react-navigation/native"
 import { useHeader } from "app/utils/useHeader"
 import { GiftedChat } from "react-native-gifted-chat"
-// import { useNavigation } from "@react-navigation/native"
-// import { useStores } from "app/models"
 
 export const ChatScreen: FC<AppStackScreenProps<"Chat">> = observer(function ChatScreen() {
   const route = useRoute<AppStackScreenProps<"Chat">["route"]>()
