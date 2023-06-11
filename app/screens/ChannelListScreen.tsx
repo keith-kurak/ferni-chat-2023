@@ -11,25 +11,13 @@ import { useHeader } from "app/utils/useHeader"
 import { colors, spacing } from "../theme"
 import { NavigationProp, useNavigation } from "@react-navigation/native"
 import { AppStackParamList } from "app/navigators"
-
-const channels = [
-  {
-    id: "1",
-    name: "llamas-who-code",
-  },
-  {
-    id: "2",
-    name: "pizza-toppings",
-  },
-  {
-    id: "3",
-    name: "taylor-swifts-favorite-cars",
-  },
-]
+import { Channel, useStores } from 'app/models'
 
 export const ChannelListScreen: FC<DemoTabScreenProps<"ChannelList">> = observer(
   function DemoPodcastListScreen(_props) {
     const navigation = useNavigation<NavigationProp<AppStackParamList>>()
+
+    const { channelStore } = useStores()
 
     const [isModalVisible, setModalVisible] = useState(false)
 
@@ -42,9 +30,9 @@ export const ChannelListScreen: FC<DemoTabScreenProps<"ChannelList">> = observer
 
     const addChannel = () => {
       if (!newChannelName) return
-      setNewChannelName("")
+      channelStore.addChannel(newChannelName)
       toggleAddChannelModal()
-    }
+   }
 
     useHeader({
       title: 'Channels',
@@ -54,8 +42,8 @@ export const ChannelListScreen: FC<DemoTabScreenProps<"ChannelList">> = observer
 
     return (
       <Screen preset="fixed" safeAreaEdges={[]} contentContainerStyle={$screenContentContainer}>
-        <FlatList<any>
-          data={channels}
+        <FlatList<Channel>
+          data={channelStore.channels}
           contentContainerStyle={$flatListContentContainer}
           ListEmptyComponent={
             <EmptyState
