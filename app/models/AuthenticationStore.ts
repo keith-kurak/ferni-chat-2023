@@ -1,35 +1,69 @@
-import { Instance, SnapshotOut, types } from "mobx-state-tree"
+import { Instance, SnapshotOut, types, flow } from "mobx-state-tree"
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth"
 
 export const AuthenticationStoreModel = types
   .model("AuthenticationStore")
   .props({
-    authToken: types.maybe(types.string),
-    authEmail: "",
+    user: types.frozen(),
+    loginError: types.maybe(types.string),
+    isLoading: false,
   })
-  .views((store) => ({
+  .views((self) => ({
     get isAuthenticated() {
-      return !!store.authToken
-    },
-    get validationError() {
-      if (store.authEmail.length === 0) return "can't be blank"
-      if (store.authEmail.length < 6) return "must be at least 6 characters"
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(store.authEmail))
-        return "must be a valid email address"
-      return ""
+      return !!self.user
     },
   }))
-  .actions((store) => ({
-    setAuthToken(value?: string) {
-      store.authToken = value
-    },
-    setAuthEmail(value: string) {
-      store.authEmail = value.replace(/ /g, "")
-    },
-    logout() {
-      store.authToken = undefined
-      store.authEmail = ""
-    },
-  }))
+  .actions((self) => {
+    const login = flow(function* login({ email, password }) {
+      const auth = getAuth()
+      try {
+        self.isLoading = true
+        self.loginError = undefined
+        yield signInWithEmailAndPassword(auth, email, password)
+      } catch (error) {
+        self.loginError = error.message
+      } finally {
+        self.isLoading = false
+      }
+    })
+
+    const logout = flow(function* logout() {
+      const auth = getAuth()
+      try {
+        yield signOut(auth)
+        self.user = undefined
+        self.loginError = undefined
+      } catch (error) {
+        // eh?
+      }
+    })
+
+    const setUser = (user) => {
+      self.user = user
+    }
+
+    return {
+      logout,
+      login,
+      setUser,
+    }
+  })
+  .actions((self) => {
+    function afterCreate() {
+      const auth = getAuth()
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          self.setUser(user)
+        } else {
+          self.logout()
+        }
+      })
+    }
+
+    return {
+      afterCreate,
+    }
+  })
 
 export interface AuthenticationStore extends Instance<typeof AuthenticationStoreModel> {}
 export interface AuthenticationStoreSnapshot extends SnapshotOut<typeof AuthenticationStoreModel> {}
