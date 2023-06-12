@@ -15,13 +15,7 @@ import { initializeAuth, getReactNativePersistence } from "firebase/auth"
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBvhX36tCMwPddyAxMhV-L7ZIWts0Gz-as",
-  authDomain: "ferni-chat-2023.firebaseapp.com",
-  projectId: "ferni-chat-2023",
-  storageBucket: "ferni-chat-2023.appspot.com",
-  messagingSenderId: "1028596892424",
-  appId: "1:1028596892424:web:2b318a5d42addddb9ae2bd",
-  measurementId: "G-RJJXJJ4WB8"
+  // ..
 };
 
 // Initialize Firebase
