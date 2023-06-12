@@ -11,6 +11,7 @@ import {
   StyleProp,
   View,
   ViewStyle,
+  ActivityIndicator,
 } from "react-native"
 import { colors } from "../theme"
 import { ExtendedEdge, useSafeAreaInsetsStyle } from "../utils/useSafeAreaInsetsStyle"
@@ -52,6 +53,8 @@ interface BaseScreenProps {
    * Pass any additional props directly to the KeyboardAvoidingView component.
    */
   KeyboardAvoidingViewProps?: KeyboardAvoidingViewProps
+
+  isLoading?: boolean
 }
 
 interface FixedScreenProps extends BaseScreenProps {
@@ -195,6 +198,7 @@ export function Screen(props: ScreenProps) {
     safeAreaEdges,
     StatusBarProps,
     statusBarStyle = "dark",
+    isLoading = false,
   } = props
 
   const $containerInsets = useSafeAreaInsetsStyle(safeAreaEdges)
@@ -215,8 +219,25 @@ export function Screen(props: ScreenProps) {
           <ScreenWithScrolling {...props} />
         )}
       </KeyboardAvoidingView>
+      {isLoading ? (
+        <View style={$spinnerContainerStyle}>
+          <ActivityIndicator size="large" />
+        </View>
+      ) : null}
     </View>
   )
+}
+
+const $spinnerContainerStyle: ViewStyle = {
+  position: "absolute",
+  top: 0,
+  right: 0,
+  left: 0,
+  bottom: 0,
+  justifyContent: "center",
+  alignItems: "center",
+  opacity: 0.5,
+  backgroundColor: colors.background,
 }
 
 const $containerStyle: ViewStyle = {

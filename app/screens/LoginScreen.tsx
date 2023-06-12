@@ -43,6 +43,7 @@ export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen(_
       preset="auto"
       contentContainerStyle={$screenContentContainer}
       safeAreaEdges={["top", "bottom"]}
+      isLoading={isLoading}
     >
       <Text testID="login-heading" tx="loginScreen.signIn" preset="heading" style={$signIn} />
       <Text tx="loginScreen.enterDetails" preset="subheading" style={$enterDetails} />
