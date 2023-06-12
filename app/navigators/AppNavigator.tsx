@@ -39,7 +39,7 @@ export type AppStackParamList = {
   Login: undefined // @demo remove-current-line
   Demo: NavigatorScreenParams<MainTabParamList> // @demo remove-current-line
   // 🔥 Your screens go here
-  Chat: { channelName: string },
+  Chat: { channelId: string },
 	// IGNITE_GENERATOR_ANCHOR_APP_STACK_PARAM_LIST
 }
 

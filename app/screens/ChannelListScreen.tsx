@@ -58,7 +58,7 @@ export const ChannelListScreen: FC<DemoTabScreenProps<"ChannelList">> = observer
             <ChannelItem
               key={item.id}
               channel={item}
-              onPress={() => navigation.navigate("Chat", { channelName: item.name })}
+              onPress={() => navigation.navigate("Chat", { channelId: item.id })}
             />
           )}
         />
