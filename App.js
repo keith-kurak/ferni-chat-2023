@@ -6,42 +6,9 @@ import { registerRootComponent } from "expo"
 import { Platform } from "react-native"
 import * as SplashScreen from "expo-splash-screen"
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { initializeAuth, getReactNativePersistence } from "firebase/auth"
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import initFirebase from './initFirebase.js'
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  // ..
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-const reactNativeLocalPersistence =
-  getReactNativePersistence({
-    getItem(...args) {
-      // Called inline to avoid deprecation warnings on startup.
-      return AsyncStorage.getItem(...args);
-    },
-    setItem(...args) {
-      // Called inline to avoid deprecation warnings on startup.
-      return AsyncStorage.setItem(...args);
-    },
-    removeItem(...args) {
-      // Called inline to avoid deprecation warnings on startup.
-      return AsyncStorage.removeItem(...args);
-    },
-  });
-
-initializeAuth(app,
-  {
-    persistence: reactNativeLocalPersistence
-  }
-)
+initFirebase();
 
 SplashScreen.preventAutoHideAsync()
 
