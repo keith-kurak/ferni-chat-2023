@@ -22,7 +22,7 @@ export const ChatScreen: FC<AppStackScreenProps<"Chat">> = observer(function Cha
   }, [])
 
   useHeader({
-    title: route.params.channelId,
+    title: channelStore.channelForId(route.params.channelId)?.name,
     leftIcon: "back",
     onLeftPress: navigation.goBack,
   })
