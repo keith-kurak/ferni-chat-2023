@@ -26,6 +26,9 @@ Bring your laptop! You will write code with it. If you regularly do JavaScript d
 11. `cd` to the folder and run `npm install`.
 12. Run `npx expo login` and login with your Expo account.
 
+### Optional/ Recommended
+- The repo has a Prettier config. You can easily right-click and auto-format your code if you install the "Prettier" VS Code plugin
+
 ## Considerations for specific setups
 - Beyond installing tools like Node and Git, you should not need admin access on your machine.
 - There's nothing particular that should be incompatible with your VPN/ Firewall setup, but you will be connecting to Firebase and Expo services.
