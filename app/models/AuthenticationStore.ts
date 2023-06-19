@@ -1,5 +1,6 @@
 import { Instance, SnapshotOut, types, flow } from "mobx-state-tree"
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth"
+import { withSetPropAction } from 'app/models/helpers/withSetPropAction'
 
 export const AuthenticationStoreModel = types
   .model("AuthenticationStore")
@@ -13,6 +14,7 @@ export const AuthenticationStoreModel = types
       return !!self.user
     },
   }))
+  .actions(withSetPropAction)
   .actions((self) => {
     const login = flow(function* login({ email, password }) {
       const auth = getAuth()
