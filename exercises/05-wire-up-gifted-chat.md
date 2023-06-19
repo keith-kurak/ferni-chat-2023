@@ -1,6 +1,8 @@
 # Wire up the chat screen
 ## Goal
 We now have some Firebase code to read/ write chat messages for a channel, let's add a screen with Gifted Chat and wire it up.
+## Start at fork:
+`exercise-5-start`
 ## Tasks
 1. Fix some ID stuff WRT ChatScreen
 2. Wire up sending a message from ChannelsStore -> ChatScreen
@@ -52,8 +54,12 @@ channelForId(id) {
 ```
 This is just for convenience. These parameterized views don't cache, BTW.
 
-- [ ] In `ChatScreen`, use the ID to get the title:
+- [ ] In `ChatScreen`, add `useStores`, then use the ID to get the title:
 ```ts
+const { channelStore, authenticationStore } = useStores()
+
+// ...
+
 const channelId = route.params.channelId;
 
 useHeader({
@@ -62,6 +68,9 @@ useHeader({
   onLeftPress: navigation.goBack,
 })
 ```
+
+Will need to add an import:
+`import { useStores } from "app/models"`
 
 🏃**Try it!** Everything should work the same (should still see channel in the title of the screen)
 
@@ -91,7 +100,7 @@ const sendMessage = flow(function* sendMessage({ user, text, channelId }) {
 });
 ```
 
-- [ ] There's new imports, too:
+- [ ] There's updated imports, too:
 ```ts
 import {
   collection,
@@ -105,12 +114,8 @@ import {
 ```
 
 #### b. Update ChatScreen
-- [ ] Add `useStores` to `ChatScreen`, pass the relevant stuff to `Chat`:
+- [ ] In `ChatScreen`, pass the relevant stuff to `Chat`:
 ```ts
-const { channelStore, authenticationStore } = useStores()
-
-// ...
-
 <Chat
   user={authenticationStore.user}
   onSendMessage={channelStore.sendMessage}
@@ -123,7 +128,7 @@ const { channelStore, authenticationStore } = useStores()
 function Chat({ onSendMessage, user, channelId }) {
 ```
 
-- [ ] Inside the `Chat` component still, wrap the sending stuff into a callback and pass that into `GiftedChat`:
+- [ ] Inside the `Chat` component still, replace `onSend` and pass that into `GiftedChat`:
 ```ts
 const onSend = useCallback((messages = []) => {
   onSendMessage({user, text: messages[0].text, channelId })
@@ -252,6 +257,8 @@ const myMessages = useMemo(() => {
   }))
 }, [messages])
 ```
+
+(add `useMemo` import from `react`)
 
 - [ ] Update the props going into GiftedChat:
 ```diff
