@@ -1,3 +1,4 @@
+import { withSetPropAction } from 'app/models/helpers/withSetPropAction'
 import { Instance, SnapshotOut, types } from "mobx-state-tree"
 
 export const AuthenticationStoreModel = types
@@ -6,6 +7,7 @@ export const AuthenticationStoreModel = types
     authToken: types.maybe(types.string),
     authEmail: "",
   })
+  .actions(withSetPropAction)
   .views((store) => ({
     get isAuthenticated() {
       return !!store.authToken
