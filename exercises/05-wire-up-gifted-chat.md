@@ -10,6 +10,7 @@ We now have some Firebase code to read/ write chat messages for a channel, let's
 4. Read messages onto ChatScreen
 ## Useful info
 - [React Native Gifted Chat](https://github.com/FaridSafi/react-native-gifted-chat)
+- [Hirbod's keyboard avoidance advice](https://twitter.com/hirbod_dev/status/1668528361457451009)
 
 ## Since you've been gone
 - Not a whole lot... we added a loading overlay for use while logging in.
@@ -298,3 +299,51 @@ import { LogBox } from "react-native"
 // ...
 LogBox.ignoreLogs(['Firebase: Error (auth/already-initialized).'])
 ```
+
+## OMG WHAT THE HECK IS GOING ON WITH THE KEYBOARD IN CHAT?!?!?!?!?!
+You may have noticed your text input getting covered by the keyboard when using chat on a device. You may have also noticed some overlap on the login screen, at least on Android.
+
+Here's how to fix `ChatScreen`:
+
+- [ ] Import `react-native-safe-area-context`:
+```ts
+import { useSafeAreaInsets } from "react-native-safe-area-context"
+```
+
+- [ ] Update `Screen` usage as such:
+```ts
+  const { top } = useSafeAreaInsets()
+
+  return (
+    <Screen
+      contentContainerStyle={$root}
+      preset="fixed"
+      KeyboardAvoidingViewProps={{ behavior: "padding", keyboardVerticalOffset: top + 56 }}
+      safeAreaEdges={["bottom"]}
+    >
+```
+This is overriding the keyboard avoidance behavior to `padding` everywhere (pads the outer view based on keyboard height) and adding accounting for the status bar and nav header.
+
+- [ ] In `Chat`, add a bottom offset and turn off GiftedChat's internal keyboard handling:
+```ts
+const { bottom } = useSafeAreaInsets()
+
+return (
+    <GiftedChat
+      messages={myMessages}
+      onSend={onSend}
+      bottomOffset={bottom}
+      isKeyboardInternallyHandled={false}
+      renderMessage={renderMessage}
+      user={{
+        _id: 1,
+      }}
+    />
+  )
+```
+
+This accounts for the issues that happen with double-keyboard-avoidance handling.
+
+- [ ] Back in `LoginScreen`, you can just add `KeyboardAvoidingViewProps={{ behavior: "padding"}}` and that'll do the trick.
+
+In the long run, on an app you had more than 4 hours to work on, you'd want to follow Hirbod's advice.
