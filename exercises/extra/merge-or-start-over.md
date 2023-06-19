@@ -1,0 +1,13 @@
+# How to go from one exercise to the next
+You have a few choices here, depending on your level of adventureousness/ risk-adversion or vice-versa...
+
+## If you want to be 100% certain you're starting from the right place...
+And you don't care about keeping your code from the last exercise, then **restart from each exercise branch**.
+
+One drawback of this is that, from exercise 4 forward, you'll need to re-copy your Firebase project ID's/ keys from the Firebase console back into **initFirebase.js**.
+
+## If you do all of the "extra" sessions...
+You can technically never use an another exercise branch after the first one.
+
+## Whether or not you do the extra, if you're OK with dealing with merge conflicts...
+You can start from exercise 1, and then merge `exercise-2-start`, `exercise-3-start`, etc. into your branch. You'll get some conflicts. Usually you just accept the incoming, and it's fine. I tried this, it wasn't too bad. The worst merge is from Exercise 1 to Exercise 2, so you could consider skipping that one.
