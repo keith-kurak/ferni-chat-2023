@@ -38,14 +38,9 @@ export const AuthenticationStoreModel = types
       }
     })
 
-    const setUser = (user) => {
-      self.user = user
-    }
-
     return {
       logout,
       login,
-      setUser,
     }
   })
   .actions((self) => {
@@ -53,7 +48,7 @@ export const AuthenticationStoreModel = types
       const auth = getAuth()
       onAuthStateChanged(auth, (user) => {
         if (user) {
-          self.setUser(user)
+          self.setProp('user', user)
         } else {
           self.logout()
         }
