@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useCallback, useMemo } from "react"
 import { observer } from "mobx-react-lite"
 import { ViewStyle } from "react-native"
+import { useSafeAreaInsets } from "react-native-safe-area-context"
 import { AppStackScreenProps } from "app/navigators"
 import { Screen, SlackMessage } from "app/components"
 import { useNavigation, useRoute } from "@react-navigation/native"
@@ -15,9 +16,9 @@ export const ChatScreen: FC<AppStackScreenProps<"Chat">> = observer(function Cha
   const { channelStore, authenticationStore } = useStores()
 
   useEffect(() => {
-    channelStore.startStreamingMessagesForChannel(route.params.channelId);
+    channelStore.startStreamingMessagesForChannel(route.params.channelId)
     return () => {
-      channelStore.stopStreamingCurrentChannelMessages();
+      channelStore.stopStreamingCurrentChannelMessages()
     }
   }, [])
 
@@ -26,8 +27,16 @@ export const ChatScreen: FC<AppStackScreenProps<"Chat">> = observer(function Cha
     leftIcon: "back",
     onLeftPress: navigation.goBack,
   })
+
+  const { top } = useSafeAreaInsets()
+
   return (
-    <Screen contentContainerStyle={$root} preset="fixed" safeAreaEdges={["bottom"]}>
+    <Screen
+      contentContainerStyle={$root}
+      preset="fixed"
+      KeyboardAvoidingViewProps={{ behavior: "padding", keyboardVerticalOffset: top + 56 }}
+      safeAreaEdges={["bottom"]}
+    >
       <Chat
         user={authenticationStore.user}
         onSendMessage={channelStore.sendMessage}
@@ -45,8 +54,10 @@ const $root: ViewStyle = {
 function Chat({ onSendMessage, user, channelId, messages }) {
   const renderMessage = useCallback((props) => <SlackMessage {...props} />, [])
 
+  const { bottom } = useSafeAreaInsets()
+
   const onSend = useCallback((messages = []) => {
-    onSendMessage({user, text: messages[0].text, channelId })
+    onSendMessage({ user, text: messages[0].text, channelId })
   }, [])
 
   const myMessages = useMemo(() => {
@@ -65,6 +76,8 @@ function Chat({ onSendMessage, user, channelId, messages }) {
     <GiftedChat
       messages={myMessages}
       onSend={onSend}
+      bottomOffset={bottom}
+      isKeyboardInternallyHandled={false}
       renderMessage={renderMessage}
       user={{
         _id: 1,
