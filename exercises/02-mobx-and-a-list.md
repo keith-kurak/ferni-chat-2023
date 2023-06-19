@@ -1,6 +1,8 @@
 # Hello, MobX and a list of stuff from MobX!
 ## Goal
 Initialize your MobX state tree model with a canned list of channels and display it on the channels tab. Watch the list update as you add channels.
+## Start at fork:
+`exercise-2-start`
 ## Tasks
 1. Create Channel and ChannelStore MST models
 2. Customize stores to include channel properties
@@ -38,9 +40,8 @@ Add a props block to `Channel`:
 
 - [ ] Be sure to import `ChannelModel` into **ChannelStore.ts**, e.g.:
 ```ts
-import { ChannelModel } from 'app/models/Channel'
+import { ChannelModel } from './Channel'
 ```
-⚠️ Usually VS Code's "fix it" recommendations work for me, but I had issues when I did that here and tried importing from `apps/models`. Not sure why, but heads up for now!
 
 - [ ] Add an `addChannel` function to `ChannelStore`:
 ```ts
@@ -49,6 +50,16 @@ import { ChannelModel } from 'app/models/Channel'
     self.channels.push({ name, id: self.channels.length.toString() /*bad way to set an id, ok for now */ })
   }
 }))
+```
+
+- [ ] Add `ChannelStore` to `RootStore`:
+This will make it show up when using `useStores`:
+```ts
+channelStore: types.optional(ChannelStoreModel),
+```
+You'll need an import, too:
+```ts
+import { ChannelStoreModel } from "./ChannelStore"
 ```
 ### 2. Wire the list to MST
 - [ ] Use the stores in `ChannelListScreen`:
