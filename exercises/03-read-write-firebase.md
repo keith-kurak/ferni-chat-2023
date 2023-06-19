@@ -23,14 +23,21 @@ This will be done in the [Firebase Console](https://console.firebase.google.com/
 a) Create the Firebase project, accept the defualts.
 <img src="./assets/firebase-setup1.png" width="400"/>
 <img src="./assets/firebase-setup2.png" width="400"/>
+
 b) In Firebase Console, go to Settings, scroll to bottom, and add a Web App. Check the "Firebase hosting" option (we'll use it later).
+
 <img src="./assets/firebase-setup3.png" width="400"/>
 <img src="./assets/firebase-setup4.png" width="400"/>
 <img src="./assets/firebase-setup5.png" width="400"/>
+
 c) Copy the project ID's, etc from the wizard into **initFirebase.js**.
+
 d) Back in Firebase dashboard, go to Build, then Firestore, then Create Database
+
 <img src="./assets/firebase-setup6.png" width="400"/>
+
 e) Start the database in "Test Mode", and otherwise accept the defaults
+
 f) Add a test collection and first record:
   collection name: "channel"
   fields:
