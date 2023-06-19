@@ -1,6 +1,6 @@
 import { Instance, SnapshotIn, SnapshotOut, types } from "mobx-state-tree"
 import { withSetPropAction } from "./helpers/withSetPropAction"
-import { ChannelModel } from 'app/models/Channel'
+import { ChannelModel } from './Channel'
 
 /**
  * Model description here for TypeScript hints.
