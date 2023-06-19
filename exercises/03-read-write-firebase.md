@@ -20,14 +20,14 @@ Switch from your canned list of channels to reading/ writing them from Firebase.
 
 ### 1. Setup Firebase
 This will be done in the [Firebase Console](https://console.firebase.google.com/). You may have done some of these steps when fulfilling the prereqs; if so, skip ahead down the list.
-a) Create the Firebase project, accept the defualts.
+a) Create the Firebase project, accept the defaults.
+
 <img src="./assets/firebase-setup1.png" width="400"/>
 <img src="./assets/firebase-setup2.png" width="400"/>
 
 b) In Firebase Console, go to Settings, scroll to bottom, and add a Web App. Check the "Firebase hosting" option (we'll use it later).
 
 <img src="./assets/firebase-setup3.png" width="400"/>
-<img src="./assets/firebase-setup4.png" width="400"/>
 <img src="./assets/firebase-setup5.png" width="400"/>
 
 c) Copy the project ID's, etc from the wizard into **initFirebase.js**.

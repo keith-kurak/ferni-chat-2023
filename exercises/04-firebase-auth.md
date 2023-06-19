@@ -16,14 +16,20 @@ Make the login screen actually work, using Firebase email/ password authenticati
 ## How to do it
 ### 1. Setup email/password auth in Firebase Console
 a) In Firebase console, go to Build -> Authentication
+
 <img src="./assets/firebase-auth1.png" width="400"/>
+
 b) Select email/ password login method
+
 c) UNSELECT "email link" (I actually love this method and think we all should use it long-term, but it's out of scope for today)
+
 d) Save
 
 #### a. Create a test user
 a) Inside the Authentication dashboard still, go to Users.
+
 b) Create a new user that you will use to test.
+
 TIP: Use gmail aliases, e.g., youremail+fernichat1@gmail.com. Then you can create multiple accounts.
 
 ### 2. Wire up AuthenticationStore
