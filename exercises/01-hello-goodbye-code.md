@@ -1,22 +1,16 @@
 # Hello, Ignite! Goodbye, Ignite!
 ## Goal
 Try out the ignite template and make some modifications to pare things down a bit.
+## Start at fork:
+`exercise-1-start`
 ## Tasks
-1. Clone the project with the default ignite template
-2. Delete some files we don't need because we're using Expo prebuild and some other default configs
-3. Delete the screens we don't need
-4. Rename our tabs that we'll use for the rest of the time
-5. Make sure it all still works
+1. Clone the project from https://github.com/keith-kurak/ferni-chat-2023
+2. Delete the screens we don't need
+3. Rename our tabs that we'll use for the rest of the time
+4. Scaffold out the channel list
+5. Add a chat screen placeholder
 ## Useful info
 - [Ignite CLI commands](https://github.com/infinitered/ignite)
-### Node 18.x compatibility issue
-If you get a weird SSL error when starting, do this:
-
-macOS/ Linux:
-`export NODE_OPTIONS=--openssl-legacy-provider`
-Windows (Powershell):
-`$env:NODE_OPTIONS="--openssl-legacy-provider"`
-###
 
 ## Starting Point
 This was largely created with `npx ignite-cli@latest new MyApp`. Defaults were accepted, and it applied the demo files.
@@ -61,6 +55,7 @@ The four tabs you see after "logging in" are set by DemoNavigator. We're going t
   }}
 />
 ```
+- [ ] Do the same thing you just did for "Channels" for "Settings", as well.
 
 🏃**Try it!** You should have only two tabs, and they should be Channels and Settings tabs. Of course, the Channels tab will actually have podcast episodes on it ;-)
 
@@ -193,7 +188,7 @@ export type AppStackParamList = {
 }
 ```
 #### a. Access the route parameter in the ChatScreen
-`ChatScreen` will just be a stub for now with no content, but we will at least read in a parameter when we push the screen on the stack for the channel. 
+`ChatScreen` will just be a stub for now with no content, but we will at least read in a parameter when we push the screen on the stack for the channel.
 
 - [ ] Set up `ChatScreen` like this:
 ```ts
@@ -243,7 +238,7 @@ import { AppStackParamList } from 'app/navigators'
 🏃**Try it!** Now you should be able to navigate between the channel list and the channel
 
 ### 4. A little cleanup
-- [ ] In `AppNavigator`, change the logged in `initialRouteName` to `Demo` (instead of `Welcome`). 
+- [ ] In `AppNavigator`, change the logged in `initialRouteName` to `Demo` (instead of `Welcome`).
 
 Now, our navigation is basically 100% of what our final app will have. Login, logout, go to channels, it's all there.
 
