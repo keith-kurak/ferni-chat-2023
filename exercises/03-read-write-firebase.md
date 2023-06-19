@@ -1,6 +1,8 @@
 # Read and write from Firebase!
 ## Goal
 Switch from your canned list of channels to reading/ writing them from Firebase.
+## Start at fork:
+`exercise-3-start`
 ## Tasks
 1. Create a Firebase project
 2. Connect Firebase to app in unsecured mode
@@ -9,6 +11,7 @@ Switch from your canned list of channels to reading/ writing them from Firebase.
 ## Useful info
 - [Structuring data with Firebase](https://firebase.google.com/docs/database/web/structure-data)
 - [Using Firebase with Expo- JS vs Native SDK](https://docs.expo.dev/guides/using-firebase/#using-firebase-js-sdk)
+- [MST Lifecycle functions](https://mobx-state-tree.js.org/overview/hooks)
 
 ## Since you've been gone
 - We added the chat screen, but just because we could and it looks fun. We don't need it yet.
@@ -17,14 +20,18 @@ Switch from your canned list of channels to reading/ writing them from Firebase.
 
 ### 1. Setup Firebase
 This will be done in the [Firebase Console](https://console.firebase.google.com/). You may have done some of these steps when fulfilling the prereqs; if so, skip ahead down the list.
-1) Create the Firebase project, accept the defualts.
-2) In Firebase Console, go to Settings, scroll to bottom, and add a Web App
- a. Check the "Firebase hosting" option (we'll use it later)
-3) Copy the init code from the wizard into **App.js** (we could make this cleaner, but we're just looking for someplace that runs on startup). You can copy it right after the last import.
-  - Remove the analytics import and init line, and other red squiggles.
-4) Back in Firebase dashboard, go to Build, then Firestore, then Create Database
-5) Start the database in "Test Mode", and otherwise accept the defaults
-6) Add a test collection and first record:
+a) Create the Firebase project, accept the defualts.
+<img src="./assets/firebase-setup1.png" width="400"/>
+<img src="./assets/firebase-setup2.png" width="400"/>
+b) In Firebase Console, go to Settings, scroll to bottom, and add a Web App. Check the "Firebase hosting" option (we'll use it later).
+<img src="./assets/firebase-setup3.png" width="400"/>
+<img src="./assets/firebase-setup4.png" width="400"/>
+<img src="./assets/firebase-setup5.png" width="400"/>
+c) Copy the project ID's, etc from the wizard into **initFirebase.js**.
+d) Back in Firebase dashboard, go to Build, then Firestore, then Create Database
+<img src="./assets/firebase-setup6.png" width="400"/>
+e) Start the database in "Test Mode", and otherwise accept the defaults
+f) Add a test collection and first record:
   collection name: "channel"
   fields:
     - name (string)
@@ -119,6 +126,8 @@ const addChannel = flow(function* addChannel(name) {
 });
 ```
 MST uses generator functions much in the way you'd use `async`/ `await`, but this has the advantage of hooking into MST lifecycle features. If you had to, you could use middleware to plug in code before or after an action awaits, or if it errors out (this is super-useful for Sentry error logging).
+
+Oh, and you'll need to import `flow` from `mobx-state-tree`.
 
 🏃**Try it!** You should be able to add a channel, and it shows up right away on your screen and in Firestore.
 
