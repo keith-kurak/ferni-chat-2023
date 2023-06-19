@@ -25,7 +25,7 @@ c) UNSELECT "email link" (I actually love this method and think we all should us
 
 d) Save
 
-#### a. Create a test user
+#### Create a test user
 a) Inside the Authentication dashboard still, go to Users.
 
 b) Create a new user that you will use to test.
