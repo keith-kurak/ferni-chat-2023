@@ -2,47 +2,34 @@
   "name": "FerniChat2023Final",
   "displayName": "FerniChat2023Final",
   "expo": {
-    "name": "FerniChat2023Final",
+    "name": "Ferni Chat",
     "slug": "FerniChat2023Final",
     "scheme": "fernichat2023final",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/app-icon-all.png",
+    "icon": "./exercises/support/assets/icon.png",
     "splash": {
-      "image": "./assets/images/splash-logo-all.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#191015"
+      "image": "./exercises/support/assets/splash.png"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/13b70437-cfba-4e22-8730-32f4e1a438d6"
     },
     "jsEngine": "hermes",
     "assetBundlePatterns": [
       "**/*"
     ],
     "android": {
-      "icon": "./assets/images/app-icon-android-legacy.png",
       "package": "com.fernichat2023",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/app-icon-android-adaptive-foreground.png",
-        "backgroundImage": "./assets/images/app-icon-android-adaptive-background.png"
-      },
-      "splash": {
-        "image": "./assets/images/splash-logo-android-universal.png",
-        "resizeMode": "contain",
-        "backgroundColor": "#191015"
+        "foregroundImage": "./exercises/support/assets/adaptive-icon-foreground.png",
+        "backgroundColor": "#FFFFFF"
       }
     },
     "ios": {
       "icon": "./assets/images/app-icon-ios.png",
       "supportsTablet": true,
-      "bundleIdentifier": "com.fernichat2023",
-      "splash": {
-        "image": "./assets/images/splash-logo-ios-mobile.png",
-        "tabletImage": "./assets/images/splash-logo-ios-tablet.png",
-        "resizeMode": "contain",
-        "backgroundColor": "#191015"
-      }
+      "bundleIdentifier": "com.fernichat2023"
     },
     "web": {
       "favicon": "./assets/images/app-icon-web-favicon.png",
@@ -55,6 +42,14 @@
     },
     "plugins": [
       "expo-localization"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "13b70437-cfba-4e22-8730-32f4e1a438d6"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    }
   }
 }

@@ -4,6 +4,8 @@
   "private": true,
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
+    "predeploy": "npx expo export --platform web",
+    "deploy-hosting": "npm run predeploy && firebase deploy --only hosting",
     "start": "npx expo start",
     "ios": "react-native run-ios",
     "android": "react-native run-android --active-arch-only",
@@ -41,6 +43,7 @@
     "expo": "^48.0.15",
     "expo-application": "~5.1.1",
     "expo-constants": "~14.2.1",
+    "expo-dev-client": "^2.2.1",
     "expo-device": "~5.2.1",
     "expo-file-system": "~15.2.1",
     "expo-font": "~11.1.1",
