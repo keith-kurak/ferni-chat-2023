@@ -1,6 +1,8 @@
 # FerniChat 2023
 For "Freaky Fast Full Stack with the FERNI STack" workshop for KCDC 2023!
 
+[Presentation](https://docs.google.com/presentation/d/1QyH5ZRbEAvudZdTVxhXUb7aqpMKrWCxsOHfAUhalwZ8/edit?usp=sharing)
+
 ## Prerequisites (do before workshop)
 
 ## Installation/ setup steps
