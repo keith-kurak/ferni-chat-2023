@@ -34,7 +34,7 @@ Add a props block to `Channel`:
 - [ ] Then add channels to the `ChannelStore`
 ```ts
 .props({
-  channels: types.array(ChannelModel),
+  channels: types.array(ChannelModel, {}),
 })
 ```
 
