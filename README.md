@@ -1,7 +1,19 @@
 # FerniChat 2023
-For "Freaky Fast Full Stack with the FERNI STack" workshop for KCDC 2023!
+For "Freaky Fast Full Stack with the FERNI Stack" workshop for KCDC 2023!
 
 [Presentation](https://docs.google.com/presentation/d/1QyH5ZRbEAvudZdTVxhXUb7aqpMKrWCxsOHfAUhalwZ8/edit?usp=sharing)
+
+## How to use this repo
+1. Do the prerequisite setup steps below.
+2. Fork the repo
+3. Open up the **exercises** folder. Start at exercise "01"
+4. Switch to the branch listed at the top of the exercise (e.g., "exercise-01-start").
+5. Do the exercises.
+6. Repeat!
+
+You can see (and run) the solution by going to the "end" branch (e.g., "exercise-01-end"). You don't even have to do the exercises; you can just run each branch to see the progress.
+
+NOTE: for branches 03, 04, 05, you'll need to have a Firebase Firestore database setup, so follow the steps at the beginning of Exercise 3. For branches 04, 05, you'll need to have Firebase email/ password auth setup, so follow the steps at the beginning of Exercise 4.
 
 ## Prerequisites (do before workshop)
 
