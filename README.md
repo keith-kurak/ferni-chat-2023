@@ -1,7 +1,11 @@
 # FerniChat 2023
 For "Freaky Fast Full Stack with the FERNI Stack" workshop for KCDC 2023!
 
-[Presentation](https://docs.google.com/presentation/d/1QyH5ZRbEAvudZdTVxhXUb7aqpMKrWCxsOHfAUhalwZ8/edit?usp=sharing)
+[Presentation- FERNI STACK](https://docs.google.com/presentation/d/1QyH5ZRbEAvudZdTVxhXUb7aqpMKrWCxsOHfAUhalwZ8/edit?usp=sharing)
+(not much here, mostly an outline for the workshop- if you want to check out 98% of what we did, just follow the instructions right below!)
+
+[Presentation and Example Repo- Choose Your Own React Native Adventure](https://github.com/keith-kurak/simple-expo-router-demo-kcdc)
+(companion talk on Thursday, includes an Expo Router demo and presentation slides)
 
 ## How to use this repo
 1. Do the prerequisite setup steps below.
